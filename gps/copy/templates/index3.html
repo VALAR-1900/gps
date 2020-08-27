@@ -1,0 +1,345 @@
+<html>
+    <head>
+        <title>GPS | Home</title>
+        <link rel="stylesheet" type="text/css" href="static/css/main.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="../static/js/tablescrool.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script src="static/js/rms_graph.js"></script>
+        
+    </head>
+    <body>
+    
+    <div class="mynav">
+        <div class="nav2">
+            <div class="left_inf">
+                <div class="full">
+                     <p class="para1">Generic Prognostic Simulator</p>
+                </div>
+                <div class="short">
+                    <p id="gps">GPS</p>
+                </div>
+            </div>
+                <div class="cred">
+                    <p id="para2" style="font-size: 18px;">Developed Under</p>
+                    <p id="para3">IndAC-SM</p>
+                </div>
+        </div>
+        <div class="logo">
+            <img src="../static/images/iiti_logo.png" alt="" width="100" class="iiti_logo" />
+        </div>
+    </div>
+    <div id="nav1">
+          
+            <div id = "li11"> 
+                <a href="#aboutMe" style="text-decoration: none; color: black" id="link_id"><img src="../static/images/house-fill.svg" width="32" height="32" id="img_home"> HOME </a>
+            </div>
+            <div id = "li12" >
+                <p id = "new_model"> New Model Training</p>
+            </div>    
+        
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-6 col-l-6" id="left_pane">  
+                    <div class="outer">
+                    <br>
+                    <p id="instuct">Select the Machine Component for its simulation</p>
+                            <table id="table-scroll-box" cellspacing="10px" cellpadding="20px" class="fixed_header frame">
+                                <thead>
+                                    <th>Component</th>
+                                    <th>Description</th>
+                                    <th></th>
+                                </thead>
+                                <tbody>
+                                    <tr id="Mining_Tool"> 
+                                        <td><img src="../static/images/milling tool.png" class="tool_img" ></td>
+                                        <td>Mining Tool A123</td>
+                                        <td><button type="button" class="btn btn-primary button" onclick="blue('Mining_Tool')">Select</button></td>
+                                    </tr>
+                                    <tr id="Ball_Bearing"> 
+                                            <td><img src="../static/images/ball bearing.png" class="tool_img"></td>
+                                            <td>Ball Bearing A6203</td>
+                                            <td><button type="button" class="btn btn-primary button" onclick="blue('Ball_Bearing')">Select</button></td>
+                                    </tr>
+                                    <tr id="Spur_Gear"> 
+                                            <td><img src="../static/images/Spur gear.svg" class="tool_img"></td>
+                                            <td>Spur Gear</td>
+                                            <td><button type="button" class="btn btn-primary button" onclick="blue('Spur_Gear')">Select</button></td>
+                                    </tr>
+                                    <tr id="Turning_Tool"> 
+                                            <td><img src="../static/images/Turning tool.png" class="tool_img"></td>
+                                            <td>Turning Tool T23</td>
+                                            <td><button type="button" class="button btn btn-primary " onclick="blue('Turning_Tool')">Select</button></td>
+                                    </tr>
+                                    <tr id="Turning_Tool"> 
+                                            <td><img src="../static/images/Turning tool.svg" class="tool_img"></td>
+                                            <td>Turning Tool T23</td>
+                                            <td><button type="button" class="btn btn-primary button" onclick="blue()">Select</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br>
+                <a href="run" class="btn btn-primary start" onclick="rms()">START</a>
+                </div>
+            </div>
+            <div class="col-xl-6 col-l-6" id="right_pane">
+                
+                <div id="home_info">
+                    <p class="GPS">Generic Prognostic Simulator</p>
+                    <ul class="inital_list">
+                        <li>Generate the simulated data set</li>
+                        <li>Generate the simulated data set</li>
+                        <li>Generate the simulated data set</li>
+                        <li>Generate the simulated data set</li>
+                    </ul> 
+                </div>
+                <!-------------BOXES START-->
+                <div id="boxes" style="position: relative; margin-top: 50px;">
+                    
+                    <div class="text_box" style="position: relative; height:200px; width:500px">Raw Data
+                        <div class="chart-container adjust">
+                            <canvas id="chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="text_box" style="position: relative; height:200px; width:500px">RMS
+                            <div class="chart-container adjust">
+                                <canvas id="chart_rms"></canvas>
+                            </div>
+                    </div>
+                    <div class="text_box" style="position: relative; height:200px; width:500px">Wear
+                        <div class="chart-container adjust">
+                            <canvas id="chart_wear"></canvas>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        
+    </div>
+    </body>
+    <script>
+        
+
+        function rms(){
+
+        var time=0,increment=1/2500,i=1,delaytime=1000,dec=3,number=1,number_iterated=1,i_before=0;
+        console.log(time,increment);
+        const xlabels=[];
+        const ytemps=[];
+        const xlabels_rms_wear=[];
+        const ytemps_rms=[];
+        const ytemps_wear=[];
+        var func=setInterval(async function()
+        {
+                if(Math.floor(time)%dec == 0 && Math.floor(time)!=0 && Math.floor(time) == time_wear_rms)
+                {
+                    chartit_rms_wear();
+                }
+
+                await getdata();  
+
+                const ctx = document.getElementById('chart').getContext('2d');
+                const myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                label:'Time',
+                labels: xlabels,
+                datasets: [{
+                    label: 'Vibration',
+                    data: ytemps,
+                    fill: false,
+                    borderColor:'rgba(0, 0, 0, 1)',
+                    borderWidth: 1
+                }]
+                },
+                options:{
+                    elements: {
+                    point:{
+                        radius: 0
+                    }
+                    },
+                    animation:null,
+                    scales:{
+                        xAxes: [{
+                            gridLines: {
+                                color: "rgba(0, 0, 0, 0)",
+                            },
+                            ticks: {
+                                max: 70,
+                                min: 0,
+                                // scaleOverride: true,
+                                // scaleSteps: 10,
+                                // scaleStepWidth: 5,
+                                // scaleStartValue: 0
+                                beginAtZero: true,
+                                callback: function (value) { Math.floor(value) },
+                                stepSize: 1
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                        }   
+                        }]
+                    }
+                }
+
+
+                    });
+        i_before=i;
+        i++;
+        if(i==15)
+            delaytime=0;
+        if(i>41)
+                check();
+        }, delaytime);
+        function check()
+        {
+            clearInterval(func);
+            popup();
+        }
+
+        async function getdata() {
+                const response= await fetch('static/RMS_MOTOR/speed_' + i + '.csv');
+                const data = await response.text();
+                const table = data.split('\n').slice(1);
+                table.forEach( row => {
+                    const columns= row.split(',');
+                    xlabels.push(time);
+                    ytemps.push(columns[0]);
+                    //console.log(time ,v_y);
+                    time+=increment;
+                });
+        }
+
+        async function chartit_rms_wear()
+        {   
+                await getdata_rms_wear();
+                number_iterated++;
+                const ctx_rms= document.getElementById('chart_rms').getContext('2d');
+                const myChart_rms= new Chart(ctx_rms, {
+                type: 'line',
+                data: {
+                labels: xlabels_rms_wear,
+                datasets: [{
+                    label: 'Rms',
+                    data: ytemps_rms,
+                    fill: false,
+                    borderColor:'rgba(0, 0, 0, 1)',
+                    borderWidth: 1
+                }]
+                },
+                options:{
+                    elements: {
+                    point:{
+                        radius: 0
+                    }
+                    },
+                    animation:null,
+                    scales:{
+                        xAxes: [{
+                            gridLines: {
+                                color: "rgba(0, 0, 0, 0)",
+                            },
+                            ticks: {
+                            autoSkip: true,
+                            tickLenghth: 20,
+                            tickPixelInterval: 20,
+                            maxTicksLimit: 1
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                        }   
+                        }]
+                    }
+                }
+                    });
+        const ctx_wear= document.getElementById('chart_wear').getContext('2d');
+        const myChart_wear= new Chart(ctx_wear, {
+        type: 'line',
+        data: {
+        labels: xlabels_rms_wear,
+        datasets: [{
+        label: 'Wear',
+        data: ytemps_wear,
+        fill: false,
+        borderColor:'rgba(0, 0, 0, 1)',
+        borderWidth: 1
+        }]
+        },
+        options:{
+                    elements: {
+                    point:{
+                        radius: 0
+                    }
+                    },
+                    animation:null,
+                    scales:{
+                        xAxes: [{
+                            gridLines: {
+                                color: "rgba(0, 0, 0, 0)",
+                            },
+                            ticks: {
+                            autoSkip: true,
+                            tickLenghth: 20,
+                            tickPixelInterval: 20,
+                            maxTicksLimit: 1
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                        }   
+                        }]
+                    }
+                }
+        });  
+        xlabels_rms_wear.length=0;
+        ytemps_rms.length=0;
+        ytemps_wear.length=0;     
+        }
+        async function getdata_rms_wear() {
+        const response= await fetch('static/RMS_MOTOR/RMS and wear.csv');
+        const data = await response.text();
+        const table = data.split('\n').slice(1);
+        ytemps_wear.push(0);
+        ytemps_rms.push(0);
+        xlabels_rms_wear.push(0);
+        var time_wear_rms=3;
+        table.forEach( row => {
+                    const columns= row.split(',');
+                    const rms_data=columns[0];
+                    const wear_data=columns[1];
+                    const temp=number_iterated*3;
+                    if(temp>=time_wear_rms)
+                    {xlabels_rms_wear.push(time_wear_rms);
+                    ytemps_wear.push(wear_data);
+                    ytemps_rms.push(rms_data);}
+                    time_wear_rms+=dec;
+                });
+                    
+            console.log("RMS AND WEAR DATA");
+            console.log(time,xlabels_rms_wear,ytemps_rms,ytemps_wear);
+        }   
+
+        }
+        function popup()
+        {
+        var answer=Math.random() * (47 - 43) + 43;
+        swal("Failure Mode: Breakage", "Component Failed at " + answer, "success");
+        }
+        
+
+        rms()
+    </script>
+</html>

@@ -1,0 +1,228 @@
+.GPS{
+    margin-top: 20%;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+}
+.inital_list{
+    display:table;
+    line-height: 300%;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: left;
+    margin-left: 23%;
+}
+.outer{
+    margin-left: 10%;
+}
+#right_pane{
+    width: 100%;
+}
+#left_pane{
+    width: 100%;
+}
+.tool_img{
+    width: 100px;
+    height: 100px;
+}
+tr{
+    border: 1px solid transparent;
+    border-radius: 1px;
+    border-color: #5a9bd5;
+}
+thead{
+    background-color: #5a9bd5;
+    color: white;
+}
+.button{
+    color: #fff;
+    background-color: #5a9bd5;
+    border-color: #5a9bd5;
+}
+#instuct{
+    font-size:19px;
+}
+.fixed_header thead tr{
+    display:block;
+}
+.start{
+    float: right;
+    margin-right: 32%;
+}
+.fixed_header tbody{
+    text-align: center;
+    display:block;
+    overflow: -moz-scrollbars-vertical;
+    overflow-y:scroll;
+    height:375px;
+    width:100%;
+}
+#nav1{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 30px;
+    border-bottom: 2px solid lightblue;
+}
+  
+  body{
+    padding: 0;
+    margin: 0;
+  }
+  
+  #li11{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    float: left;
+    width: 7%;
+  }
+
+  #img_home{
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      line-height: 10px;
+  }
+
+  #li12{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    
+  }
+  
+  #link_id{
+    width: 20%;
+    color: rgb(61, 78, 192);
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+    line-height: 30px;
+  }
+  
+  #new_model{
+    color: rgb(43, 55, 134);
+    font-family: arial;
+    padding: 0px;
+    font-size: 20px;
+    font-weight: 550;
+    
+  }  
+*{transition:all 0.3s ease-in-out;}
+.mynav{
+margin: 0;
+padding: 0;
+height: 100px;
+width: 100%;
+background-image: linear-gradient(to right, rgb(1, 32, 96) 40%, rgb(188, 205, 235) 80%); 
+}
+.logo{
+width: 5%;
+margin: 0;
+padding: 0;
+float: right;
+}
+.nav2{
+    margin: 0;
+    padding: 0;
+width: 92%;
+float: left;
+height: 100%;
+}
+.iiti_logo{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.left_inf{
+float: left;
+height: 100%;
+}  
+.cred{
+float: right;
+width: 150px;
+height: 100%;
+}
+.full{
+float: left;
+height: 100%;
+width: 125px;
+font-weight: 500;
+font-family: verdana;
+font-size: 20px;
+padding-right: 20px; 
+top: 50%;
+}
+#gps{
+    top: 0;
+    margin: 0;
+    padding: 0;
+    line-height: 100px;
+font-size: 90px;
+text-align: center;
+color: rgb(255, 218, 103);
+}
+#para2{
+    margin: 0;
+    margin-top: 20px;
+    padding: 0;
+color: rgb(255, 218, 103);
+font-weight: 600;
+}
+#para3{
+    margin: 0;
+    padding: 0;
+    color: rgb(255, 218, 103);
+    font-weight: 600;
+    font-size: 30px;    
+}
+.para1{
+    color: rgb(255, 218, 103);
+    font-weight: 600;
+    }
+.short{
+width: 160px;
+height: 100%;
+float: right;
+}
+.footer{
+
+    background-color: rgb(1, 32, 96);
+    position: absolute;;
+    bottom:0;
+    width:100%;
+    height:60px;
+    right: 0%;
+    
+}
+#boxes{
+    display: none;
+}
+.box{
+    border: 2px solid black;
+    width: 500px;
+    height: 150px;
+    border-radius: 5px;
+    float: inline-end;
+}
+.box_1{
+    height: 30%;
+}
+.box_2{
+    height: 30%;
+}
+.box_3{
+    height: 30%;
+}
+.text_box{
+    writing-mode: vertical-lr;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+}
+.adjust{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+

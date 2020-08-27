@@ -1,0 +1,106 @@
+<html></html>
+<head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script> 
+    
+</head>
+<body>
+    <canvas id="chart_rms" heigh="100px" width="300px"></canvas>
+    <canvas id="chart_wear" heigh="100px" width="300px"></canvas>
+    <script>
+        var time=0,increment=1/2500,number=0;
+        console.log(time,increment);
+        const xlabels=[];
+        const ytemps_rms=[];
+        const ytemps_wear=[];
+        getdata_rms_wear();
+        if(time%dec == 0)
+        {
+            chartit_rms_wear();
+            number++;
+        }
+        async function chartit_rms_wear()
+        {
+                xlabels.length=number;
+                ytemps_rms.length=number;
+                ytemps_wear.length=number;
+                const ctx_rms= document.getElementById('chart_rms').getContext('2d');
+                const myChart_rms= new Chart(ctx_rms, {
+                type: 'line',
+                data: {
+                labels: xlabels,
+                datasets: [{
+                    label: 'R',
+                    data: ytemps_rms,
+                    fill: false,
+                    borderColor:'rgba(0, 0, 0, 1)',
+                    borderWidth: 1
+                }]
+                },
+                options:{
+                    scales:{
+                        xAxes: [{
+                            
+                            ticks: {
+                            autoSkip: true,
+                            tickLenghth: 20,
+                            tickPixelInterval: 20,
+                            maxTicksLimit: 1
+                        }
+                       }]
+                    }
+                }
+
+
+                    });
+        const ctx_wear= document.getElementById('chart_wear').getContext('2d');
+        const myChart_wear= new Chart(ctx_wear, {
+        type: 'line',
+        data: {
+        labels: xlabels,
+        datasets: [{
+        label: 'R',
+        data: ytemps_wear,
+        fill: false,
+        borderColor:'rgba(0, 0, 0, 1)',
+        borderWidth: 1
+        }]
+        },
+            options:{
+                    scales:{
+                        xAxes: [{
+                            
+                            ticks: {
+                            autoSkip: true,
+                            tickLenghth: 20,
+                            tickPixelInterval: 20,
+                            maxTicksLimit: 1
+                        }
+                       }]
+                    }
+                }
+
+
+        });       
+        }
+        
+        async function getdata_rms_wear() {
+            const response= await fetch('name.csv');
+            const data = await response.text();
+            const table = data.split('\n').slice(1);
+            table.forEach( row => {
+                const columns= row.split(',');
+                const rms_data=columns[0];
+                const wear_data=columns[1];
+                xlabels.push(time);
+                ytemps_wear.push(wear_data);
+                ytemps_rms.push(rms_data);
+                console.log(time , rms_data, wear_data);
+            });
+          
+        } 
+    </script>
+
+</body>
+</html>
